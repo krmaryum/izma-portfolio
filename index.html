@@ -7,18 +7,18 @@
   <meta name="description" content="Modern portfolio website for Izma Siddiqui, Architecture student and BIM/CAD intern based in Chicago." />
   <style>
     :root {
-      --bg: #071018;
-      --glass: rgba(255, 255, 255, 0.11);
-      --glass-strong: rgba(255, 255, 255, 0.16);
-      --border: rgba(255, 255, 255, 0.18);
-      --text: #f8fafc;
-      --muted: #cbd5e1;
-      --soft: #94a3b8;
-      --cyan: #67e8f9;
-      --teal: #2dd4bf;
-      --gold: #facc15;
-      --rose: #fb7185;
-      --shadow: 0 25px 80px rgba(0, 0, 0, 0.34);
+      --bg: #1f211c;
+      --glass: rgba(245, 241, 232, 0.10);
+      --glass-strong: rgba(245, 241, 232, 0.16);
+      --border: rgba(245, 241, 232, 0.18);
+      --text: #f5f1e8;
+      --muted: #d8d0c3;
+      --soft: #b9b09f;
+      --cyan: #a3b18a;
+      --teal: #7f8f68;
+      --gold: #c6a969;
+      --rose: #b08968;
+      --shadow: 0 25px 80px rgba(0, 0, 0, 0.28);
     }
 
     * {
@@ -42,10 +42,10 @@
       inset: 0;
       z-index: -3;
       background:
-        radial-gradient(circle at 15% 15%, rgba(103, 232, 249, 0.25), transparent 28%),
-        radial-gradient(circle at 85% 20%, rgba(45, 212, 191, 0.18), transparent 30%),
-        radial-gradient(circle at 50% 85%, rgba(250, 204, 21, 0.12), transparent 28%),
-        linear-gradient(135deg, #071018 0%, #0f172a 52%, #0a1f24 100%);
+        radial-gradient(circle at 15% 15%, rgba(163, 177, 138, 0.20), transparent 28%),
+        radial-gradient(circle at 85% 20%, rgba(214, 198, 168, 0.15), transparent 30%),
+        radial-gradient(circle at 50% 85%, rgba(198, 169, 105, 0.14), transparent 28%),
+        linear-gradient(135deg, #1f211c 0%, #2b2b25 52%, #35372f 100%);
     }
 
     body::after {
@@ -76,7 +76,7 @@
       height: 330px;
       left: -90px;
       top: 120px;
-      background: rgba(103, 232, 249, 0.16);
+      background: rgba(163, 177, 138, 0.12);
     }
 
     .blob.two {
@@ -84,7 +84,7 @@
       height: 420px;
       right: -120px;
       top: 380px;
-      background: rgba(45, 212, 191, 0.13);
+      background: rgba(214, 198, 168, 0.11);
       animation-delay: 1.5s;
     }
 
@@ -93,7 +93,7 @@
       height: 280px;
       left: 45%;
       bottom: -100px;
-      background: rgba(250, 204, 21, 0.10);
+      background: rgba(176, 137, 104, 0.10);
       animation-delay: 2.5s;
     }
 
@@ -125,8 +125,8 @@
     .glass:hover {
       transform: translateY(-9px);
       background: var(--glass-strong);
-      border-color: rgba(103, 232, 249, 0.48);
-      box-shadow: 0 32px 90px rgba(103, 232, 249, 0.12);
+      border-color: rgba(163, 177, 138, 0.42);
+      box-shadow: 0 32px 90px rgba(163, 177, 138, 0.10);
     }
 
     .pill {
@@ -137,7 +137,7 @@
       border-radius: 999px;
       background: rgba(255,255,255,0.10);
       border: 1px solid rgba(255,255,255,0.16);
-      color: #cffafe;
+      color: #f5f1e8;
       font-weight: 700;
       font-size: 13px;
       letter-spacing: 0.2px;
@@ -171,10 +171,10 @@
       display: grid;
       place-items: center;
       border-radius: 18px;
-      background: linear-gradient(135deg, rgba(103,232,249,0.22), rgba(250,204,21,0.14));
+      background: linear-gradient(135deg, rgba(163,177,138,0.18), rgba(198,169,105,0.14));
       border: 1px solid rgba(255,255,255,0.18);
       font-weight: 900;
-      color: #ecfeff;
+      color: #f5f1e8;
       letter-spacing: -1px;
     }
 
@@ -231,6 +231,12 @@
       padding: 76px 0 86px;
     }
 
+    .hero h1,
+    .title {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 700;
+    }
+
     .hero h1 {
       font-size: clamp(45px, 7vw, 82px);
       line-height: 1.02;
@@ -239,7 +245,7 @@
     }
 
     .gradient-text {
-      background: linear-gradient(90deg, #67e8f9, #2dd4bf, #facc15);
+      background: linear-gradient(90deg, #a3b18a, #7f8f68, #c6a969);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -275,9 +281,9 @@
     }
 
     .btn-primary {
-      background: #67e8f9;
-      color: #06202c;
-      box-shadow: 0 18px 50px rgba(103, 232, 249, 0.18);
+      background: #d6c6a8;
+      color: #26231e;
+      box-shadow: 0 18px 50px rgba(198, 169, 105, 0.14);
     }
 
     .btn-outline {
@@ -288,7 +294,7 @@
 
     .btn:hover {
       transform: translateY(-5px);
-      box-shadow: 0 24px 55px rgba(103, 232, 249, 0.16);
+      box-shadow: 0 24px 55px rgba(163, 177, 138, 0.12);
     }
 
     .profile-card {
@@ -301,7 +307,7 @@
       position: absolute;
       inset: -12px;
       border-radius: 36px;
-      background: linear-gradient(135deg, rgba(103,232,249,0.36), rgba(250,204,21,0.15), rgba(45,212,191,0.22));
+      background: linear-gradient(135deg, rgba(163,177,138,0.22), rgba(198,169,105,0.13), rgba(214,198,168,0.14));
       filter: blur(14px);
       z-index: -1;
       opacity: 0.8;
@@ -331,7 +337,7 @@
       display: grid;
       place-items: center;
       background:
-        linear-gradient(135deg, rgba(103,232,249,0.22), rgba(250,204,21,0.18)),
+        linear-gradient(135deg, rgba(163,177,138,0.18), rgba(198,169,105,0.16)),
         radial-gradient(circle at 70% 25%, rgba(255,255,255,0.18), transparent 30%);
       border: 1px solid rgba(255,255,255,0.16);
       font-size: 38px;
@@ -366,7 +372,7 @@
 
     .mini:hover {
       transform: translateY(-6px);
-      background: rgba(103,232,249,0.12);
+      background: rgba(163,177,138,0.11);
     }
 
     .mini strong {
@@ -387,8 +393,8 @@
       padding: 22px;
       border-radius: 24px;
       background:
-        linear-gradient(rgba(103,232,249,0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(103,232,249,0.06) 1px, transparent 1px),
+        linear-gradient(rgba(214,198,168,0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(214,198,168,0.07) 1px, transparent 1px),
         rgba(2, 6, 23, 0.35);
       background-size: 22px 22px;
       border: 1px solid rgba(255,255,255,0.10);
@@ -461,7 +467,7 @@
       border-radius: 17px;
       background: rgba(255,255,255,0.09);
       border: 1px solid rgba(255,255,255,0.10);
-      color: #e2e8f0;
+      color: #eee7dc;
       display: flex;
       gap: 10px;
       align-items: center;
@@ -484,8 +490,8 @@
       border-radius: 21px;
       display: grid;
       place-items: center;
-      background: rgba(103, 232, 249, 0.13);
-      border: 1px solid rgba(103, 232, 249, 0.16);
+      background: rgba(163, 177, 138, 0.13);
+      border: 1px solid rgba(163, 177, 138, 0.12);
       font-size: 28px;
       margin-bottom: 24px;
     }
@@ -511,7 +517,7 @@
       border-radius: 16px;
       background: rgba(255,255,255,0.10);
       border: 1px solid rgba(255,255,255,0.13);
-      color: #e2e8f0;
+      color: #eee7dc;
       font-weight: 750;
       font-size: 14px;
       transition: 0.3s ease;
@@ -519,9 +525,9 @@
 
     .tag:hover {
       transform: translateY(-6px) scale(1.045);
-      border-color: rgba(103,232,249,0.58);
-      color: #cffafe;
-      background: rgba(103,232,249,0.12);
+      border-color: rgba(163,177,138,0.50);
+      color: #f5f1e8;
+      background: rgba(163,177,138,0.11);
     }
 
     .timeline {
@@ -551,7 +557,7 @@
     }
 
     .timeline-item h4 {
-      color: #fde68a;
+      color: #d6c6a8;
       font-size: 15px;
       margin-bottom: 13px;
       font-weight: 800;
@@ -592,8 +598,8 @@
       display: inline-block;
       padding: 8px 12px;
       border-radius: 999px;
-      background: rgba(250, 204, 21, 0.12);
-      color: #fde68a;
+      background: rgba(198, 169, 105, 0.14);
+      color: #d6c6a8;
       font-size: 12px;
       font-weight: 900;
       margin-bottom: 18px;
@@ -610,7 +616,7 @@
       padding: 58px 35px;
       background:
         linear-gradient(135deg, rgba(255,255,255,0.16), rgba(255,255,255,0.06)),
-        radial-gradient(circle at 50% 0%, rgba(103,232,249,0.15), transparent 38%);
+        radial-gradient(circle at 50% 0%, rgba(163,177,138,0.12), transparent 38%);
     }
 
     .contact p {
@@ -665,7 +671,13 @@
       .hero-actions, .contact-links { flex-direction: column; }
       .btn { width: 100%; }
       .about, .card, .timeline-item, .contact { padding: 24px; }
-      .hero h1 { letter-spacing: -1.5px; }
+      .hero h1,
+    .title {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 700;
+    }
+
+    .hero h1 { letter-spacing: -1.5px; }
     }
   </style>
 </head>
@@ -698,12 +710,10 @@
   <main>
     <section class="container hero">
       <div class="reveal">
-        <span class="pill">✦ Architecture student based in Chicago</span>
+        <span class="pill">✦ Looking for opportunities in the AEC industry</span>
         <h1>Designing thoughtful spaces with <span class="gradient-text">BIM, CAD & creative precision</span>.</h1>
         <p class="hero-lead">
-          I’m Izma Siddiqui, an architecture-focused college student with BIM, CAD, Revit, AutoCAD,
-          Bluebeam, research, documentation, and customer-facing experience. I’m seeking opportunities
-          connected to architecture, urban planning, engineering, real estate development, or asset management.
+          Dedicated professional pursuing a career in Architecture. Possesses over 6 years of BIM, Revit, AutoCAD, Bluebeam, research, and construction documentation experience. Ability to work independently with minimal direction. Extremely organized and creative with strong presentation skills. Currently seeking employment opportunities related to the Architecture, Engineering, and Construction field.
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#experience">View Experience →</a>
@@ -716,7 +726,7 @@
           <div class="avatar">IS</div>
           <div>
             <h2>Izma Siddiqui</h2>
-            <p>Architecture student with BIM internship experience, strong presentation skills, and a detail-oriented design mindset.</p>
+            <p>Young, enthusiastic architecture professional with a diverse work background ranging from showroom assistance to site planning, with the latest being BIM coordination.</p>
           </div>
         </div>
 
@@ -728,17 +738,17 @@
 
         <div class="blueprint" aria-label="Decorative architecture blueprint illustration">
           <svg viewBox="0 0 520 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M30 150H490" stroke="#67e8f9" stroke-width="2" opacity=".8"/>
-            <path d="M70 150V80L150 35L230 80V150" stroke="#67e8f9" stroke-width="3"/>
-            <path d="M150 35V150" stroke="#facc15" stroke-width="2" opacity=".9"/>
-            <path d="M230 80H330V150" stroke="#2dd4bf" stroke-width="3"/>
-            <path d="M265 150V112H305V150" stroke="#facc15" stroke-width="2"/>
-            <path d="M95 150V112H130V150" stroke="#67e8f9" stroke-width="2"/>
-            <path d="M365 150V65H455V150" stroke="#67e8f9" stroke-width="3"/>
-            <path d="M365 65L410 28L455 65" stroke="#2dd4bf" stroke-width="3"/>
-            <path d="M388 150V103H432V150" stroke="#facc15" stroke-width="2"/>
-            <circle cx="150" cy="35" r="5" fill="#facc15"/>
-            <circle cx="410" cy="28" r="5" fill="#facc15"/>
+            <path d="M30 150H490" stroke="#a3b18a" stroke-width="2" opacity=".8"/>
+            <path d="M70 150V80L150 35L230 80V150" stroke="#a3b18a" stroke-width="3"/>
+            <path d="M150 35V150" stroke="#c6a969" stroke-width="2" opacity=".9"/>
+            <path d="M230 80H330V150" stroke="#7f8f68" stroke-width="3"/>
+            <path d="M265 150V112H305V150" stroke="#c6a969" stroke-width="2"/>
+            <path d="M95 150V112H130V150" stroke="#a3b18a" stroke-width="2"/>
+            <path d="M365 150V65H455V150" stroke="#a3b18a" stroke-width="3"/>
+            <path d="M365 65L410 28L455 65" stroke="#7f8f68" stroke-width="3"/>
+            <path d="M388 150V103H432V150" stroke="#c6a969" stroke-width="2"/>
+            <circle cx="150" cy="35" r="5" fill="#c6a969"/>
+            <circle cx="410" cy="28" r="5" fill="#c6a969"/>
           </svg>
         </div>
       </aside>
@@ -752,14 +762,12 @@
         </div>
         <div>
           <p>
-            Izma combines architectural education with hands-on BIM/CAD internship experience and a strong
-            service background. Her resume highlights design software exposure, drawing interpretation,
-            3D modeling, documentation, research, and communication across teams.
+            I've synthesized my architectural education with in-field BIM and CAD experience. In addition, my strong service background allows me to empathize with every job at its core being a service-providing role. My resume highlights design software exposure, drawing interpretation, 3D modeling, documentation, research, and communication across teams.
           </p>
           <div class="focus-list">
-            <div class="focus-item">✓ Architecture, urban planning, engineering, real estate development, and asset management interests</div>
+            <div class="focus-item">✓ Architecture, Urban Planning, Engineering, Real Estate Development, and Asset Management Interests</div>
             <div class="focus-item">✓ Fluent in English and Urdu</div>
-            <div class="focus-item">✓ Organized, analytical, creative, and presentation-focused</div>
+            <div class="focus-item">✓ Organized, Analytical, Creative, and Presentation-Focused</div>
           </div>
         </div>
       </div>
@@ -855,8 +863,8 @@
         <article class="timeline-item glass">
           <div class="time">2022 – 2024<br>Chicago, IL</div>
           <div>
-            <h3>Guest Service Associate</h3>
-            <h4>Chicago Children’s Museum</h4>
+            <h3>Showroom Associate</h3>
+            <h4>Drapery Connect</h4>
             <ul>
               <li>Handled guest concerns, front desk duties, check-in software, quality-control notes, and phone communication.</li>
               <li>Opened and closed the concierge desk and supported customer satisfaction in a high-traffic environment.</li>
@@ -870,7 +878,7 @@
       <div class="section-head">
         <div>
           <p class="label">Featured Strengths</p>
-          <h2 class="title">What she brings to a team.</h2>
+          <h2 class="title">What I bring to the team.</h2>
         </div>
       </div>
 
@@ -957,7 +965,7 @@
         const rect = card.getBoundingClientRect();
         const x = event.clientX - rect.left;
         const y = event.clientY - rect.top;
-        card.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(103,232,249,0.17), rgba(255,255,255,0.10) 38%)`;
+        card.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(214,198,168,0.14), rgba(255,255,255,0.10) 38%)`;
       });
 
       card.addEventListener("mouseleave", () => {
