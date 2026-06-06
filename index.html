@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Izma Siddiqui | Architecture & BIM Portfolio</title>
+  <meta name="description" content="Modern portfolio website for Izma Siddiqui, Architecture student and BIM/CAD intern based in Chicago." />
+  <style>
+    :root {
+      --bg: #071018;
+      --glass: rgba(255, 255, 255, 0.11);
+      --glass-strong: rgba(255, 255, 255, 0.16);
+      --border: rgba(255, 255, 255, 0.18);
+      --text: #f8fafc;
+      --muted: #cbd5e1;
+      --soft: #94a3b8;
+      --cyan: #67e8f9;
+      --teal: #2dd4bf;
+      --gold: #facc15;
+      --rose: #fb7185;
+      --shadow: 0 25px 80px rgba(0, 0, 0, 0.34);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      background:
+        radial-gradient(circle at 15% 15%, rgba(103, 232, 249, 0.25), transparent 28%),
+        radial-gradient(circle at 85% 20%, rgba(45, 212, 191, 0.18), transparent 30%),
+        radial-gradient(circle at 50% 85%, rgba(250, 204, 21, 0.12), transparent 28%),
+        linear-gradient(135deg, #071018 0%, #0f172a 52%, #0a1f24 100%);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent 90%);
+      pointer-events: none;
+    }
+
+    .blob {
+      position: fixed;
+      border-radius: 999px;
+      filter: blur(18px);
+      opacity: 0.65;
+      pointer-events: none;
+      z-index: -1;
+      animation: float 9s ease-in-out infinite alternate;
+    }
+
+    .blob.one {
+      width: 330px;
+      height: 330px;
+      left: -90px;
+      top: 120px;
+      background: rgba(103, 232, 249, 0.16);
+    }
+
+    .blob.two {
+      width: 420px;
+      height: 420px;
+      right: -120px;
+      top: 380px;
+      background: rgba(45, 212, 191, 0.13);
+      animation-delay: 1.5s;
+    }
+
+    .blob.three {
+      width: 280px;
+      height: 280px;
+      left: 45%;
+      bottom: -100px;
+      background: rgba(250, 204, 21, 0.10);
+      animation-delay: 2.5s;
+    }
+
+    @keyframes float {
+      from { transform: translateY(0) translateX(0) scale(1); }
+      to { transform: translateY(-32px) translateX(24px) scale(1.06); }
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: 0 auto;
+    }
+
+    .glass {
+      background: var(--glass);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      box-shadow: var(--shadow);
+      border-radius: 30px;
+      transition: transform 0.35s ease, background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .glass:hover {
+      transform: translateY(-9px);
+      background: var(--glass-strong);
+      border-color: rgba(103, 232, 249, 0.48);
+      box-shadow: 0 32px 90px rgba(103, 232, 249, 0.12);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.16);
+      color: #cffafe;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.2px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(7, 16, 24, 0.62);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .mark {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(103,232,249,0.22), rgba(250,204,21,0.14));
+      border: 1px solid rgba(255,255,255,0.18);
+      font-weight: 900;
+      color: #ecfeff;
+      letter-spacing: -1px;
+    }
+
+    .brand h3 {
+      font-size: 18px;
+      letter-spacing: 0.2px;
+    }
+
+    .brand p {
+      margin-top: 2px;
+      color: var(--soft);
+      font-size: 12px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 650;
+    }
+
+    nav a {
+      position: relative;
+      transition: color 0.25s ease;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -7px;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--cyan), var(--gold));
+      transition: width 0.25s ease;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .hero {
+      min-height: calc(100vh - 76px);
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      align-items: center;
+      gap: 54px;
+      padding: 76px 0 86px;
+    }
+
+    .hero h1 {
+      font-size: clamp(45px, 7vw, 82px);
+      line-height: 1.02;
+      letter-spacing: -3px;
+      margin: 24px 0 24px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #67e8f9, #2dd4bf, #facc15);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-lead {
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.85;
+      max-width: 680px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 34px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 54px;
+      padding: 0 22px;
+      border-radius: 18px;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform 0.28s ease, box-shadow 0.28s ease, background 0.28s ease;
+    }
+
+    .btn-primary {
+      background: #67e8f9;
+      color: #06202c;
+      box-shadow: 0 18px 50px rgba(103, 232, 249, 0.18);
+    }
+
+    .btn-outline {
+      background: rgba(255,255,255,0.10);
+      border-color: rgba(255,255,255,0.18);
+      color: white;
+    }
+
+    .btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 24px 55px rgba(103, 232, 249, 0.16);
+    }
+
+    .profile-card {
+      position: relative;
+      padding: 28px;
+    }
+
+    .profile-card::before {
+      content: "";
+      position: absolute;
+      inset: -12px;
+      border-radius: 36px;
+      background: linear-gradient(135deg, rgba(103,232,249,0.36), rgba(250,204,21,0.15), rgba(45,212,191,0.22));
+      filter: blur(14px);
+      z-index: -1;
+      opacity: 0.8;
+      animation: pulse 4.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes pulse {
+      from { transform: rotate(-1deg) scale(0.98); opacity: 0.55; }
+      to { transform: rotate(2deg) scale(1.02); opacity: 0.98; }
+    }
+
+    .profile-top {
+      display: grid;
+      grid-template-columns: 108px 1fr;
+      gap: 20px;
+      align-items: center;
+      padding: 22px;
+      border-radius: 24px;
+      background: rgba(2, 6, 23, 0.45);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .avatar {
+      width: 108px;
+      height: 108px;
+      border-radius: 30px;
+      display: grid;
+      place-items: center;
+      background:
+        linear-gradient(135deg, rgba(103,232,249,0.22), rgba(250,204,21,0.18)),
+        radial-gradient(circle at 70% 25%, rgba(255,255,255,0.18), transparent 30%);
+      border: 1px solid rgba(255,255,255,0.16);
+      font-size: 38px;
+      font-weight: 950;
+    }
+
+    .profile-top h2 {
+      font-size: 29px;
+      margin-bottom: 6px;
+    }
+
+    .profile-top p {
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 13px;
+      margin-top: 15px;
+    }
+
+    .mini {
+      padding: 18px 13px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.10);
+      text-align: center;
+      transition: 0.3s ease;
+    }
+
+    .mini:hover {
+      transform: translateY(-6px);
+      background: rgba(103,232,249,0.12);
+    }
+
+    .mini strong {
+      display: block;
+      color: var(--cyan);
+      font-size: 23px;
+      margin-bottom: 5px;
+    }
+
+    .mini span {
+      color: var(--soft);
+      font-size: 12px;
+      line-height: 1.3;
+    }
+
+    .blueprint {
+      margin-top: 16px;
+      padding: 22px;
+      border-radius: 24px;
+      background:
+        linear-gradient(rgba(103,232,249,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(103,232,249,0.06) 1px, transparent 1px),
+        rgba(2, 6, 23, 0.35);
+      background-size: 22px 22px;
+      border: 1px solid rgba(255,255,255,0.10);
+      min-height: 190px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .blueprint svg {
+      width: 100%;
+      height: 150px;
+      opacity: 0.95;
+    }
+
+    .section {
+      padding: 82px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 30px;
+      margin-bottom: 34px;
+    }
+
+    .label {
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 13px;
+      font-weight: 900;
+      margin-bottom: 13px;
+    }
+
+    .title {
+      font-size: clamp(32px, 4.4vw, 48px);
+      line-height: 1.08;
+      letter-spacing: -1.6px;
+    }
+
+    .section-head p {
+      max-width: 520px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .about {
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 0.86fr 1.14fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .about p {
+      color: var(--muted);
+      line-height: 1.85;
+      font-size: 18px;
+    }
+
+    .focus-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .focus-item {
+      padding: 14px 16px;
+      border-radius: 17px;
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.10);
+      color: #e2e8f0;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .cards-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 23px;
+    }
+
+    .card {
+      padding: 30px;
+      min-height: 100%;
+    }
+
+    .icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 21px;
+      display: grid;
+      place-items: center;
+      background: rgba(103, 232, 249, 0.13);
+      border: 1px solid rgba(103, 232, 249, 0.16);
+      font-size: 28px;
+      margin-bottom: 24px;
+    }
+
+    .card h3 {
+      font-size: 22px;
+      margin-bottom: 14px;
+    }
+
+    .card p, .card li {
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .tag {
+      padding: 13px 17px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.13);
+      color: #e2e8f0;
+      font-weight: 750;
+      font-size: 14px;
+      transition: 0.3s ease;
+    }
+
+    .tag:hover {
+      transform: translateY(-6px) scale(1.045);
+      border-color: rgba(103,232,249,0.58);
+      color: #cffafe;
+      background: rgba(103,232,249,0.12);
+    }
+
+    .timeline {
+      display: grid;
+      gap: 20px;
+      position: relative;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      gap: 22px;
+      padding: 26px;
+      position: relative;
+    }
+
+    .time {
+      color: var(--cyan);
+      font-weight: 900;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .timeline-item h3 {
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .timeline-item h4 {
+      color: #fde68a;
+      font-size: 15px;
+      margin-bottom: 13px;
+      font-weight: 800;
+    }
+
+    .timeline-item ul {
+      padding-left: 20px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .project-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::after {
+      content: "↗";
+      position: absolute;
+      right: 24px;
+      top: 22px;
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      background: rgba(255,255,255,0.10);
+      color: var(--cyan);
+      transition: 0.3s ease;
+    }
+
+    .project-card:hover::after {
+      transform: translate(4px, -4px);
+      background: rgba(103,232,249,0.16);
+    }
+
+    .project-kicker {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(250, 204, 21, 0.12);
+      color: #fde68a;
+      font-size: 12px;
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    .education-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 23px;
+    }
+
+    .contact {
+      text-align: center;
+      padding: 58px 35px;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.16), rgba(255,255,255,0.06)),
+        radial-gradient(circle at 50% 0%, rgba(103,232,249,0.15), transparent 38%);
+    }
+
+    .contact p {
+      max-width: 720px;
+      margin: 18px auto 0;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 18px;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 32px;
+    }
+
+    footer {
+      padding: 28px;
+      color: var(--soft);
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(34px);
+      transition: 0.8s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 950px) {
+      nav ul { display: none; }
+      .hero, .about, .education-grid { grid-template-columns: 1fr; }
+      .cards-3 { grid-template-columns: 1fr; }
+      .section-head { align-items: start; flex-direction: column; }
+      .timeline-item { grid-template-columns: 1fr; }
+      .hero { padding-top: 54px; }
+    }
+
+    @media (max-width: 560px) {
+      .nav { height: 70px; }
+      .brand p { display: none; }
+      .profile-top { grid-template-columns: 1fr; text-align: center; }
+      .avatar { margin: 0 auto; }
+      .mini-grid { grid-template-columns: 1fr; }
+      .hero-actions, .contact-links { flex-direction: column; }
+      .btn { width: 100%; }
+      .about, .card, .timeline-item, .contact { padding: 24px; }
+      .hero h1 { letter-spacing: -1.5px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="blob one"></div>
+  <div class="blob two"></div>
+  <div class="blob three"></div>
+
+  <header>
+    <div class="container nav">
+      <a href="#" class="brand" aria-label="Izma Siddiqui home">
+        <div class="mark">IS</div>
+        <div>
+          <h3>Izma Siddiqui</h3>
+          <p>Architecture • BIM • CAD</p>
+        </div>
+      </a>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#expertise">Expertise</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="container hero">
+      <div class="reveal">
+        <span class="pill">✦ Architecture student based in Chicago</span>
+        <h1>Designing thoughtful spaces with <span class="gradient-text">BIM, CAD & creative precision</span>.</h1>
+        <p class="hero-lead">
+          I’m Izma Siddiqui, an architecture-focused college student with BIM, CAD, Revit, AutoCAD,
+          Bluebeam, research, documentation, and customer-facing experience. I’m seeking opportunities
+          connected to architecture, urban planning, engineering, real estate development, or asset management.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#experience">View Experience →</a>
+          <a class="btn btn-outline" href="mailto:izma.siddiqui@gmail.com">Email Izma</a>
+        </div>
+      </div>
+
+      <aside class="profile-card glass reveal" aria-label="Profile summary card">
+        <div class="profile-top">
+          <div class="avatar">IS</div>
+          <div>
+            <h2>Izma Siddiqui</h2>
+            <p>Architecture student with BIM internship experience, strong presentation skills, and a detail-oriented design mindset.</p>
+          </div>
+        </div>
+
+        <div class="mini-grid">
+          <div class="mini"><strong>6+</strong><span>Years Customer Service</span></div>
+          <div class="mini"><strong>BIM</strong><span>Revit + MEP Coordination</span></div>
+          <div class="mini"><strong>CAD</strong><span>Site Plans + Drafting</span></div>
+        </div>
+
+        <div class="blueprint" aria-label="Decorative architecture blueprint illustration">
+          <svg viewBox="0 0 520 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M30 150H490" stroke="#67e8f9" stroke-width="2" opacity=".8"/>
+            <path d="M70 150V80L150 35L230 80V150" stroke="#67e8f9" stroke-width="3"/>
+            <path d="M150 35V150" stroke="#facc15" stroke-width="2" opacity=".9"/>
+            <path d="M230 80H330V150" stroke="#2dd4bf" stroke-width="3"/>
+            <path d="M265 150V112H305V150" stroke="#facc15" stroke-width="2"/>
+            <path d="M95 150V112H130V150" stroke="#67e8f9" stroke-width="2"/>
+            <path d="M365 150V65H455V150" stroke="#67e8f9" stroke-width="3"/>
+            <path d="M365 65L410 28L455 65" stroke="#2dd4bf" stroke-width="3"/>
+            <path d="M388 150V103H432V150" stroke="#facc15" stroke-width="2"/>
+            <circle cx="150" cy="35" r="5" fill="#facc15"/>
+            <circle cx="410" cy="28" r="5" fill="#facc15"/>
+          </svg>
+        </div>
+      </aside>
+    </section>
+
+    <section id="about" class="section container reveal">
+      <div class="about glass">
+        <div>
+          <p class="label">About</p>
+          <h2 class="title">A creative, organized architecture professional in progress.</h2>
+        </div>
+        <div>
+          <p>
+            Izma combines architectural education with hands-on BIM/CAD internship experience and a strong
+            service background. Her resume highlights design software exposure, drawing interpretation,
+            3D modeling, documentation, research, and communication across teams.
+          </p>
+          <div class="focus-list">
+            <div class="focus-item">✓ Architecture, urban planning, engineering, real estate development, and asset management interests</div>
+            <div class="focus-item">✓ Fluent in English and Urdu</div>
+            <div class="focus-item">✓ Organized, analytical, creative, and presentation-focused</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="expertise" class="section container reveal">
+      <div class="section-head">
+        <div>
+          <p class="label">Expertise</p>
+          <h2 class="title">Design, documentation, and delivery skills.</h2>
+        </div>
+        <p>Built from her architecture coursework, BIM internship, CAD internship, and customer service leadership experience.</p>
+      </div>
+
+      <div class="cards-3">
+        <article class="card glass">
+          <div class="icon">🏛️</div>
+          <h3>Architecture & Design</h3>
+          <p>Architectural design coursework, digital lab experience, construction fundamentals, manual drafting, and creative presentation skills.</p>
+        </article>
+        <article class="card glass">
+          <div class="icon">📐</div>
+          <h3>BIM / CAD Tools</h3>
+          <p>Familiarity with AutoCAD, Revit, and Bluebeam, including 3D modeling, drawing interpretation, utility layouts, and site plan updates.</p>
+        </article>
+        <article class="card glass">
+          <div class="icon">🤝</div>
+          <h3>Client & Team Support</h3>
+          <p>Over 6 years of customer service experience, problem-solving, administrative support, documentation, and multitasking under pressure.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container reveal">
+      <div class="section-head">
+        <div>
+          <p class="label">Skills</p>
+          <h2 class="title">Technical toolbox.</h2>
+        </div>
+      </div>
+      <div class="tags">
+        <span class="tag">AutoCAD</span>
+        <span class="tag">Revit</span>
+        <span class="tag">Bluebeam</span>
+        <span class="tag">BIM Coordination</span>
+        <span class="tag">3D Modeling</span>
+        <span class="tag">Site Plans</span>
+        <span class="tag">Manual Drafting</span>
+        <span class="tag">Microsoft Office</span>
+        <span class="tag">Research</span>
+        <span class="tag">Document Management</span>
+        <span class="tag">Administrative Skills</span>
+        <span class="tag">English & Urdu</span>
+      </div>
+    </section>
+
+    <section id="experience" class="section container reveal">
+      <div class="section-head">
+        <div>
+          <p class="label">Experience</p>
+          <h2 class="title">Professional work experience.</h2>
+        </div>
+        <p>Selected experience from architecture, BIM, CAD, real estate, museum, showroom, and customer-service roles.</p>
+      </div>
+
+      <div class="timeline">
+        <article class="timeline-item glass">
+          <div class="time">Sep 2023 – Aug 2025<br>Chicago, IL</div>
+          <div>
+            <h3>BIM Intern</h3>
+            <h4>dbHMS</h4>
+            <ul>
+              <li>Supported BIM information delivery, Revit 3D modeling, MEP coordination, and drawing interpretation.</li>
+              <li>Worked with Revit, Bluebeam, and AutoCAD for visualization, scheduling, estimating, and project documentation.</li>
+              <li>Communicated with designers and engineers to meet deadlines and maintain document standards.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="timeline-item glass">
+          <div class="time">Jun 2023 – Aug 2023<br>Chicago, IL</div>
+          <div>
+            <h3>CAD Design Intern</h3>
+            <h4>Brookfield Properties Real Estate</h4>
+            <ul>
+              <li>Read utility layouts and added information to site plans.</li>
+              <li>Updated site plans with current aerials to reduce misinterpreted development opportunities.</li>
+              <li>Supported documentation of property specifications and report generation.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="timeline-item glass">
+          <div class="time">2022 – 2024<br>Chicago, IL</div>
+          <div>
+            <h3>Guest Service Associate</h3>
+            <h4>Chicago Children’s Museum</h4>
+            <ul>
+              <li>Handled guest concerns, front desk duties, check-in software, quality-control notes, and phone communication.</li>
+              <li>Opened and closed the concierge desk and supported customer satisfaction in a high-traffic environment.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container reveal">
+      <div class="section-head">
+        <div>
+          <p class="label">Featured Strengths</p>
+          <h2 class="title">What she brings to a team.</h2>
+        </div>
+      </div>
+
+      <div class="cards-3">
+        <article class="card glass project-card">
+          <span class="project-kicker">Design Thinking</span>
+          <h3>Creative + Detail-Oriented</h3>
+          <p>Strong combination of creativity, organization, presentation ability, and analytical attention to detail.</p>
+        </article>
+        <article class="card glass project-card">
+          <span class="project-kicker">BIM Workflow</span>
+          <h3>Modeling & Coordination</h3>
+          <p>Experience supporting BIM teams through Revit modeling, MEP coordination, drawing review, and documentation standards.</p>
+        </article>
+        <article class="card glass project-card">
+          <span class="project-kicker">Professional Support</span>
+          <h3>Service & Communication</h3>
+          <p>Customer-centered background with multitasking, confidential information handling, and cross-team communication.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="education" class="section container reveal">
+      <div class="section-head">
+        <div>
+          <p class="label">Education</p>
+          <h2 class="title">Architecture education.</h2>
+        </div>
+      </div>
+
+      <div class="education-grid">
+        <article class="card glass">
+          <div class="icon">🎓</div>
+          <h3>Southern Illinois University</h3>
+          <p><strong>Carbondale, IL</strong></p>
+          <p>January 2024 – May 2026</p>
+        </article>
+        <article class="card glass">
+          <div class="icon">📚</div>
+          <h3>Harold Washington College</h3>
+          <p><strong>Chicago, IL</strong></p>
+          <p>Associate of Applied Sciences in Architecture, Basic Certificate of Architecture, and Basic Certificate of Architectural Digital Media.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="section container reveal">
+      <div class="contact glass">
+        <p class="label">Contact</p>
+        <h2 class="title">Let’s connect about architecture, BIM, CAD, or design opportunities.</h2>
+        <p>
+          Izma is seeking employment opportunities related to architecture, urban planning,
+          engineering, real estate development, or asset management.
+        </p>
+        <div class="contact-links">
+          <a class="btn btn-primary" href="mailto:izma.siddiqui@gmail.com">izma.siddiqui@gmail.com</a>
+          <a class="btn btn-outline" href="tel:3126780192">312-678-0192</a>
+          <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query=Chicago%2C%20IL%2060645" target="_blank" rel="noreferrer">Chicago, IL</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Izma Siddiqui. Portfolio designed with HTML, CSS, and JavaScript.
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll(".reveal");
+
+    function revealOnScroll() {
+      for (const item of reveals) {
+        const top = item.getBoundingClientRect().top;
+        const trigger = window.innerHeight - 110;
+        if (top < trigger) item.classList.add("show");
+      }
+    }
+
+    window.addEventListener("scroll", revealOnScroll);
+    window.addEventListener("load", revealOnScroll);
+
+    document.querySelectorAll(".glass").forEach((card) => {
+      card.addEventListener("mousemove", (event) => {
+        const rect = card.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+        card.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(103,232,249,0.17), rgba(255,255,255,0.10) 38%)`;
+      });
+
+      card.addEventListener("mouseleave", () => {
+        card.style.background = "";
+      });
+    });
+  </script>
+</body>
+</html>
